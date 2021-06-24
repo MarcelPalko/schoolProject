@@ -1,15 +1,95 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 html {
   font-family: "Open Sans", sans-serif;
 }
 
-html,
 body {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  height: 95px;
+  padding: 10px;
+  background-color: #113976;
+  color: #fff;
+}
+
+.header div {
+  margin-top: 5px;
+  text-align: center;
+
+  color: white;
+  font-size: calc(15px + 2vw);
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.header img {
+  width: 7.5vw;
+  min-width: 90px;
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  width: 100%;
+  min-height: 400px;
+  padding: 20px 0;
+}
+
+.card {
+  display: flex;
+  height: 300px;
+  width: 54vw;
+  max-width: 700px;
+  min-width: 450px;
+
+  overflow: hidden;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.second-row {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 400px;
 }
 
 .info-wrapper {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  z-index: 101;
   height: 100%;
   width: 100%;
 
@@ -18,7 +98,6 @@ body {
   justify-content: space-around;
   align-items: center;
 
-  opacity: 0.9;
   background-color: #000;
   transform: translateY(-1000px);
 }
@@ -32,8 +111,8 @@ body {
 
 .team-info {
   cursor: pointer;
-  z-index: 1;
-  position: absolute;
+  z-index: 50;
+  position: fixed;
   bottom: 10px;
   left: 10px;
 
@@ -55,6 +134,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .profiles img {
@@ -66,6 +146,7 @@ body {
 .profile div {
   color: #fff;
   text-align: center;
+  font-size: 20px;
   opacity: 0;
   transition: opacity 250ms ease-in;
 }
