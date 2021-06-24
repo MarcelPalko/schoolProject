@@ -2,6 +2,34 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+}
+
+.info-wrapper {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  opacity: 0.9;
+  background-color: #000;
+  transform: translateY(-1000px);
+}
+
+.info-wrapper h1 {
+  margin: 0;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
 .team-info {
   cursor: pointer;
   z-index: 1;
@@ -22,7 +50,83 @@ html {
   transition: 250ms ease-out;
 }
 
+.profiles {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.profiles img {
+  height: 250px;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.profile div {
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.roll-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  transition: background-color 350ms ease;
+}
+
+.roll-button:hover {
+  background-color: #fff;
+  color: #113976;
+}
+
 .team-info:hover {
   opacity: 1;
   color: #113976;
+}
+
+/* PLACE FOR ANIMATIONS */
+@keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000);
+  }
+}
+
+@keyframes profiles-slide-down {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

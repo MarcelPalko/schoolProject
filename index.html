@@ -9,8 +9,33 @@
     />
   </head>
   <body>
-    <div class="team-info" id="infoButton">
+    <div class="info-wrapper" id="infoWrapper">
+      <h1>Tvůrci této stránky</h1>
+      <div class="profiles" id="profiles">
+        <div class="profile">
+          <img />
+          <div>David Kučera &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img />
+          <div>Daniel Kozák &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img />
+          <div>Marcel Palko &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img />
+          <div>Dominik Molák &nbsp; ITA3</div>
+        </div>
+      </div>
+      <div class="roll-button" onclick="rollUp()">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+    </div>
+    <div class="team-info" onclick="showInfo()">
       <i class="fas fa-users"></i>
     </div>
+    <script type="text/javascript" src="scripts/app.js"></script>
   </body>
 </html>
