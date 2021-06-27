@@ -15,6 +15,7 @@ window.onload = () => {
 const showInfo = () => {
     const wrapper = document.getElementById("infoWrapper");
     const profiles = document.getElementById("profiles");
+    wrapper.style.display = "flex";
     wrapper.style.animation = "slide-down 800ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
     document.querySelector("body").style.overflowY = "hidden";
 
@@ -40,5 +41,9 @@ const rollUp = () => {
         element.childNodes[1].style.opacity = "0";
         element.childNodes[3].style.opacity = "0";
     });
-    document.querySelector("body").style.overflowY = "scroll";
+
+    setTimeout(() => {
+        wrapper.style.display = "none"
+        document.querySelector("body").style.overflowY = "auto";
+    }, 900);
 };
