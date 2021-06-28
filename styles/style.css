@@ -1,9 +1,12 @@
 /* Set color variables */
 :root {
   --black-background-color: #000;
+  --light-blue-background-color: #2395cb;
+  --azure-background-color: #48cae4;
+  --orange-background-color: #ff7900;
   --main-blue-color: #113976;
   --main-text-color: #fff;
-  --gray-text-color: #b3b3b3;
+  --gray-text-color: #c7b8b8;
 }
 
 * {
@@ -72,17 +75,81 @@ body {
   padding: 20px 0 0 0;
 }
 
-.card {
+.card,
+.card-reversed {
   display: flex;
-  height: 300px;
+  height: 330px;
   width: 54vw;
-  max-width: 700px;
-  min-width: 450px;
+  max-width: 800px;
+  min-width: 550px;
+  background-color: var(--main-blue-color);
 
   overflow: hidden;
   text-align: center;
   font-size: 30px;
   box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.card-reversed {
+  flex-direction: row-reverse;
+}
+
+.card-reversed > .card-img {
+  margin: 0 31px 0 0;
+}
+
+.card-reversed .card-content {
+  margin-left: 0;
+}
+
+.card-img {
+  z-index: 5;
+  display: flex;
+  height: 330px;
+  width: 259px;
+  margin-left: 5px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 290px;
+  width: 100%;
+  background-color: var(--main-text-color);
+  padding: 30px;
+  margin-left: 26px;
+  justify-content: space-between;
+}
+
+.card-content i {
+  font-size: 45px;
+  align-self: flex-start;
+  margin-left: 10px;
+  color: var(--main-blue-color);
+}
+
+.card-content-student {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.card-content-text {
+  font-size: calc(15px + 0.8vw);
+  padding: 5px;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.student-name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.student-class {
+  font-size: 20px;
 }
 
 .second-row {
@@ -103,7 +170,7 @@ body {
   height: 100%;
   width: 100%;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
