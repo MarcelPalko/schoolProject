@@ -1,4 +1,18 @@
 @media screen and (max-width: 744px) {
+  .header {
+    gap: 10px;
+    height: 65px;
+  }
+
+  .header img {
+    width: 1.5vw;
+    min-width: 75px;
+  }
+
+  .header div {
+    font-size: 20px;
+  }
+
   .first-row {
     gap: 0;
   }
