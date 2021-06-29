@@ -1,13 +1,32 @@
 // Inicializace obrázků pro rychlost
 window.onload = () => {
-    const profiles = document.getElementById("profiles");
+    const profiles = Array.from(document.getElementById("profiles").childNodes);
+    const pageImgs = Array.from(document.querySelectorAll("img"));
     const creators = ["david.webp", "dan.webp", "marcel.webp", "dominik.webp"];
 
-    Array.from(profiles.childNodes).filter(item => item.nodeName === "DIV").forEach((element, index) => {
+    profiles.filter(item => item.nodeName === "DIV").forEach((element, index) => {
         const imgSrc = `imgs/${creators[index]}`;
 
         new Image().src = imgSrc; 
         element.childNodes[1].src = imgSrc;
+    });
+
+    pageImgs.filter(img => img.src.includes("profiles") || !img.alt).forEach(img => {
+        
+        if(img.src.includes("logo")) {
+           img.style.animation = "spin 2s linear infinite";
+        }
+
+        setTimeout(() => {
+            img.parentElement.style.justifyContent = "normal";
+            img.parentElement.style.alignItems = "normal";
+            img.style.display = img.src.includes("logo") ? "none" : "flex";
+
+            if(img.src.includes("profiles")) {
+                img.style.opacity = "1";
+                img.style.visibility = "visible";
+            }
+        }, 2000);
     });
 };
 

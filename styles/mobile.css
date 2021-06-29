@@ -4,7 +4,8 @@
     height: 65px;
   }
 
-  .header img {
+  .header img,
+  .card-img img:nth-child(1) {
     width: 1.5vw;
     min-width: 75px;
   }
@@ -66,6 +67,10 @@
   .card-img {
     height: 160px;
     width: 138px;
+  }
+
+  .card-img img:nth-child(1) {
+    margin-left: -10px;
   }
 
   .card-content {
