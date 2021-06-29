@@ -98,16 +98,38 @@ body {
   margin: 0 31px 0 0;
 }
 
+.card-reversed > .card-img img:nth-child(1) {
+  margin-right: -10px;
+}
+
 .card-reversed .card-content {
   margin-left: 0;
 }
 
 .card-img {
+  position: relative;
   z-index: 5;
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 330px;
   width: 259px;
   margin-left: 5px;
+}
+
+.card-img img:nth-child(1) {
+  position: absolute;
+  z-index: 5;
+
+  width: 6.5vw;
+  min-width: 90px;
+  margin-left: 10px;
+}
+
+.card-img img:nth-child(2n) {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 350ms ease;
 }
 
 .card-content {
@@ -288,5 +310,14 @@ body {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
