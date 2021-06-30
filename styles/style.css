@@ -87,7 +87,7 @@ body {
   overflow: hidden;
   text-align: center;
   font-size: 30px;
-  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
 }
 
 .card-reversed {
