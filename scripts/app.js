@@ -2,7 +2,7 @@
 window.onload = () => {
     const profiles = Array.from(document.getElementById("profiles").childNodes);
     const pageImgs = Array.from(document.querySelectorAll("img"));
-    const creators = ["david.webp", "dan.webp", "marcel.webp", "dominik.webp"];
+    const creators = ["david.jpg", "dan.jpg", "marcel.jpg", "dominik.jpg"];
 
     profiles.filter(item => item.nodeName === "DIV").forEach((element, index) => {
         const imgSrc = `imgs/${creators[index]}`;
