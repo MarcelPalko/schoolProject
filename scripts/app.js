@@ -43,7 +43,10 @@ const showInfo = () => {
     document.querySelector("body").style.overflowY = "hidden";
 
     setTimeout(() => {
-        infoWrapper.firstElementChild.style.opacity = "1";
+        // Zobrazení třídy
+        Array.from(infoWrapper.childNodes[1].children).forEach(element => {
+            element.style.opacity = "1";
+        });
 
         // Nastaví na obrázky animace a efekty
         profiles.filter(item => item.nodeName === "DIV").forEach(element => {

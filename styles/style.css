@@ -201,12 +201,20 @@ body {
   transform: translateY(-1000px);
 }
 
-.info-wrapper h1 {
+.info-wrapper__title h1, h3 {
   margin: 0;
   color: var(--main-text-color);
-  font-size: 3vw;
   opacity: 0;
   transition: opacity 250ms ease-in;
+}
+
+.info-wrapper__title h1 {
+  font-size: 3vw;
+}
+
+.info-wrapper__title h3 {
+  font-size: calc(8px + 1.2vw);
+  text-align: center;
 }
 
 .team-info {
