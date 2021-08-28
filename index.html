@@ -1,7 +1,111 @@
 <html>
   <head>
+    <title>SPŠT - OPERAČNÍ SYSTÉMY</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="imgs/ikona.png" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/mobile.css" />
+    <link rel="stylesheet" href="styles/fontawesome/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&amp;display=swap"
+    />
     <script type="text/javascript" src="scripts/data.js"></script>
     <script type="text/javascript" src="scripts/core.js"></script>
   </head>
+  <body>
+    <div class="header">
+      <img src="imgs/logo_spst.png" alt="logo_spst" />
+      <div>SPŠT - OPERAČNÍ SYSTÉMY</div>
+    </div>
+    <div class="content">
+      <div class="first-row">
+        <div class="card">
+          <div class="card-img">
+            <img src="imgs/logo_spst.png" />
+            <img src="imgs/profiles/dan-01.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <i class="fas fa-quote-left"></i>
+            <div class="card-content-text">
+              Miluju virtual box, ale po čase je to zlo =)
+            </div>
+            <div class="card-content-student">
+              <div class="student-name">Daniel Kozák</div>
+              <div class="student-class">ITA3</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-reversed">
+          <div class="card-img">
+            <img src="imgs/logo_spst.png" />
+            <img src="imgs/profiles/david-01.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <i class="fas fa-quote-left"></i>
+
+            <div class="card-content-text">
+              Myslel jsem si, že věci z hodin v praxi nevyužiji, ale mýlil jsem
+              se.
+            </div>
+            <div class="card-content-student">
+              <div class="student-name">David Kučera</div>
+              <div class="student-class">ITA3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second-row">
+        <div class="card">
+          <div class="card-img">
+            <img src="imgs/logo_spst.png" />
+            <img src="imgs/profiles/marcel-01.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <i class="fas fa-quote-left"></i>
+            <div class="card-content-text">
+              Virtual box je zajímavý nástroj, dokud se nesetkáte s Windows
+              serverem.
+            </div>
+            <div class="card-content-student">
+              <div class="student-name">Marcel Palko</div>
+              <div class="student-class">ITA3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-wrapper" id="infoWrapper">
+      <div class="info-wrapper__title">
+        <h1>Tvůrci této stránky</h1>
+        <h3>ITA 2018-2022</h3>
+      </div>
+      <div class="profiles" id="profiles">
+        <div class="profile">
+          <img alt="David" loading="lazy" />
+          <div>David Kučera &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img alt="Dan" loading="lazy" />
+          <div>Daniel Kozák &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img alt="Marcel" loading="lazy" />
+          <div>Marcel Palko &nbsp; ITA3</div>
+        </div>
+        <div class="profile">
+          <img alt="Dominik" loading="lazy" />
+          <div>Dominik Molák &nbsp; ITA3</div>
+        </div>
+      </div>
+      <div class="roll-button" onclick="rollUp()">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+    </div>
+    <div class="team-info" onclick="showInfo()">
+      <i class="fas fa-users"></i>
+    </div>
+    <script type="text/javascript" src="scripts/app.js"></script>
+  </body>
 </html>

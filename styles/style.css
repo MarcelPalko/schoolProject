@@ -1,0 +1,331 @@
+/* Set color variables */
+:root {
+  --black-background-color: #000;
+  --light-blue-background-color: #2395cb;
+  --azure-background-color: #48cae4;
+  --orange-background-color: #ff7900;
+  --main-blue-color: #113976;
+  --main-text-color: #fff;
+  --gray-text-color: #c7b8b8;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  height: 95px;
+  padding: 15px;
+  background-color: var(--main-blue-color);
+  color: var(--main-text-color);
+}
+
+.header div {
+  margin-top: 5px;
+  text-align: center;
+
+  color: white;
+  font-size: calc(15px + 2vw);
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.header img {
+  width: 6.5vw;
+  min-width: 90px;
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  width: 100%;
+  min-height: 400px;
+  padding: 20px 0 0 0;
+}
+
+.card,
+.card-reversed {
+  display: flex;
+  height: 330px;
+  width: 54vw;
+  max-width: 800px;
+  min-width: 550px;
+  background-color: var(--main-blue-color);
+
+  overflow: hidden;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+}
+
+.card-reversed {
+  flex-direction: row-reverse;
+}
+
+.card-reversed > .card-img {
+  margin: 0 31px 0 0;
+}
+
+.card-reversed > .card-img img:nth-child(1) {
+  margin-right: -10px;
+}
+
+.card-reversed .card-content {
+  margin-left: 0;
+}
+
+.card-img {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 330px;
+  width: 259px;
+  margin-left: 5px;
+}
+
+.card-img img:nth-child(1) {
+  position: absolute;
+  z-index: 5;
+
+  width: 6.5vw;
+  min-width: 90px;
+  margin-left: 10px;
+}
+
+.card-img img:nth-child(2n) {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 290px;
+  width: 100%;
+  background-color: var(--main-text-color);
+  padding: 30px;
+  margin-left: 26px;
+  justify-content: space-between;
+}
+
+.card-content i {
+  font-size: 45px;
+  align-self: flex-start;
+  margin-left: 10px;
+  color: var(--main-blue-color);
+}
+
+.card-content-student {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.card-content-text {
+  font-size: calc(15px + 0.8vw);
+  padding: 5px;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.student-name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.student-class {
+  font-size: 20px;
+}
+
+.second-row {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 40px;
+
+  width: 100%;
+}
+
+.info-wrapper {
+  position: fixed;
+  z-index: 101;
+  height: 100%;
+  width: 100%;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: var(--black-background-color);
+  transform: translateY(-1000px);
+}
+
+.info-wrapper__title h1, h3 {
+  margin: 0;
+  color: var(--main-text-color);
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.info-wrapper__title h1 {
+  font-size: 3vw;
+}
+
+.info-wrapper__title h3 {
+  font-size: calc(8px + 1.2vw);
+  text-align: center;
+}
+
+.team-info {
+  cursor: pointer;
+  z-index: 100;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+
+  opacity: 0.3;
+  border: 1px solid var(--gray-text-color);
+  border-radius: 50%;
+  transition: 250ms ease-out;
+}
+
+.profiles {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.profiles img {
+  height: 250px;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.profile div {
+  color: var(--main-text-color);
+  text-align: center;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.roll-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 60px;
+  height: 60px;
+
+  border: 1px solid;
+  border-radius: 50%;
+  color: var(--main-text-color);
+  font-size: 25px;
+  transition: background-color 350ms ease;
+}
+
+.roll-button:hover {
+  background-color: var(--main-text-color);
+  color: var(--main-blue-color);
+}
+
+.team-info:hover {
+  opacity: 1;
+  color: var(--main-blue-color);
+  border-color: var(--main-blue-color);
+}
+
+/* PLACE FOR ANIMATIONS */
+@keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000);
+  }
+}
+
+@keyframes profiles-slide-down {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
