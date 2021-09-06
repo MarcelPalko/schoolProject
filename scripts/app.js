@@ -59,6 +59,17 @@ window.onload = () => {
     });
 };
 
+// Sets interval for changing layouts and cards content
+setInterval(() => {
+    const cardElements = document.querySelectorAll('.card, .card-reversed');
+
+    setNumbersToSetting();
+    suffleData();
+    Array.from(cardElements).forEach((card, index) => {
+        setCardData(card, index);
+    });
+}, 10000);
+
 // Zobrazí tvůrce stránky
 const showInfo = () => {
     infoWrapper.style.display = "flex";
@@ -96,16 +107,6 @@ const rollUp = () => {
     }, 600);
 };
 
-// Sets interval for changing layouts and cards content
-setInterval(() => {
-    const cardElements = document.querySelectorAll('.card, .card-reversed');
-
-    setNumbersToSetting();
-    Array.from(cardElements).forEach((card, index) => {
-        setCardData(card, index);
-    });
-}, 9000);
-
 const setNumbersToSetting = () => {
     settings.generatedNumbers = [];
     settings.generatedNumbers = [...generateNumbers(settings.activeLayout, 5).map((number) => number === 0 ? 1 : number)];
@@ -122,34 +123,52 @@ const generateNumbers = (count, limit) => {
     return temp.length > 1 ? temp : temp[0];
 };
 
-// Choose layout, it depends on the length of quote
-const setLayout = () => {
-    if(settings.data.filter(item => item.quote.length > 60)) {
-        settings.activeLayout = Layouts.TwoCards;
-    }
-};
-
 // Nastavení obsahu karty
 const setCardData = (card, cardIndex) => {
     Array.from(card.children).forEach((element, index) => {
         switch(index) {
             case 0: {
                 const imageSrc = `imgs/profiles/${settings.data[cardIndex]['name'].toLowerCase()}-0${settings.generatedNumbers[index]}.jpg`;
-                
+
                 element.children[1].src = getCachedImage(imageSrc);
                 break;
             }
 
             case 1: {                
+                const quoteElement = element.children[1];
+                const studentInfoElement = element.children[2];
                 const quoteNum = generateNumbers(null, settings.data[cardIndex]['quotes'].length);
+                const quote = settings.data[cardIndex]['quotes'][+quoteNum];
 
-                element.children[1].innerText = settings.data[cardIndex]['quotes'][+quoteNum];
-                element.children[2].children[0].innerText = settings.data[cardIndex]['name'];
-                element.children[2].children[1].innerText = settings.data[cardIndex]['class'];
+                quoteElement.innerText = quote;
+                quoteElement.style.fontSize = setTextFontSize(quote);
+                studentInfoElement.children[0].innerText = settings.data[cardIndex]['name'];
+                studentInfoElement.children[1].innerText = settings.data[cardIndex]['class'];
                 break;
             }
         }
     });
+};
+
+// If quote is bigger, sets smaller font size
+const setTextFontSize = (quote) => {
+    if(quote.length > 110) {
+        return `calc(10px + 0.8vw)`;
+    }else {
+        return '';
+    }
+};
+
+// Fisher–Yates Shuffle (https://bost.ocks.org/mike/shuffle/)
+const suffleData = () => {
+    let currentIndex = settings.data.length;
+
+    while(currentIndex != 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [settings.data[currentIndex], settings.data[randomIndex]] = [settings.data[randomIndex], settings.data[currentIndex]];
+    }
 };
 
 // Getter for image
