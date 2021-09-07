@@ -129,7 +129,6 @@ body {
 .card-img img:nth-child(2n) {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 350ms ease;
 }
 
 .card-content {
@@ -327,5 +326,23 @@ body {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

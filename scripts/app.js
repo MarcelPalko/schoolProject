@@ -129,8 +129,14 @@ const setCardData = (card, cardIndex) => {
         switch(index) {
             case 0: {
                 const imageSrc = `imgs/profiles/${settings.data[cardIndex]['name'].toLowerCase()}-0${settings.generatedNumbers[index]}.jpg`;
+                let newImage = getCachedImage(imageSrc);
+                element.children[1].style.animation = "fadeOut 250ms";
 
-                element.children[1].src = getCachedImage(imageSrc);
+
+                setTimeout(() => {
+                    element.children[1].src = newImage.src;
+                    element.children[1].style.animation = "fadeIn 200ms";
+                }, 220);
                 break;
             }
 
@@ -140,10 +146,18 @@ const setCardData = (card, cardIndex) => {
                 const quoteNum = generateNumbers(null, settings.data[cardIndex]['quotes'].length);
                 const quote = settings.data[cardIndex]['quotes'][+quoteNum];
 
-                quoteElement.innerText = quote;
-                quoteElement.style.fontSize = setTextFontSize(quote);
-                studentInfoElement.children[0].innerText = settings.data[cardIndex]['name'];
-                studentInfoElement.children[1].innerText = settings.data[cardIndex]['class'];
+                quoteElement.style.animation = "fadeOut 250ms";
+                studentInfoElement.style.animation = "fadeOut 250ms";
+
+                setTimeout(() => {
+                    quoteElement.innerText = quote;
+                    quoteElement.style.fontSize = setTextFontSize(quote);
+                    quoteElement.style.animation = "fadeIn 200ms";
+
+                    studentInfoElement.children[0].innerText = settings.data[cardIndex]['name'];
+                    studentInfoElement.children[1].innerText = settings.data[cardIndex]['class'];
+                    studentInfoElement.style.animation = "fadeIn 200ms";
+                }, 220);
                 break;
             }
         }
@@ -173,7 +187,7 @@ const suffleData = () => {
 
 // Getter for image
 const getCachedImage = (url) => {
-    return editImageCache(url) || settings.cachedImages.find((img) => img.src.includes(url)).src;
+    return editImageCache(url) || settings.cachedImages.find((img) => img.src.includes(url));
 };
 
 // Controls Image Cache
@@ -183,6 +197,6 @@ const editImageCache = (url) => {
         newImage.src = url;
         settings.cachedImages.push(newImage);
 
-        return newImage.src;
+        return newImage;
     }
 };
