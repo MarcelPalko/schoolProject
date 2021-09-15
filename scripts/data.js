@@ -8,7 +8,7 @@ const PAGEDATA = [{
             "quotes": [
                 "Virtual box je zajímavý nástroj, dokud se nesetkáte s Windows serverem.",
                 "Věděli jste, že formát FAT32 má limitovanou velikost souboru na 4 GB ?",
-                "Nebojte se ptát na věci které nevíte !"
+                "Nebojte se ptát na věci které nevíte !!"
             ]
         },
         { 
