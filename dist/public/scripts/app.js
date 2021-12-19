@@ -273,14 +273,14 @@ const copyImageId = (target) => {
     let tooltip = document.createElement("div");
     tooltip.classList.add("tooltip");
     tooltip.style.left = target.x;
-    tooltip.style.top = target.y;
+    tooltip.style.top = target.y - 50;
     tooltip.textContent = "ID COPIED !";
 
     document.body.appendChild(tooltip);
     tooltip.style.opacity = "1";
 
     setTimeout(() => {
-      tooltip.opacity = 0;
+      tooltip.style.animation = "fadeOut 280ms";
       tooltip.remove();
     }, 3000);
   }

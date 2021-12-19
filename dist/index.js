@@ -15,7 +15,7 @@ app.set("views", path.join(__dirname, "/views"));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/imgs/profiles");
+    cb(null, "./dist/public/imgs/profiles");
   },
   filename: (req, file, cb) => {
     cb(
@@ -31,7 +31,7 @@ const upload = multer({
 
 const overWriteJSON = (newItem, title) => {
   fs.readFile(
-    "./public/scripts/data.json",
+    "./dist/public/scripts/data.json",
     "utf8",
     function calreadFileCallbacklback(err, data) {
       if (err) {
@@ -53,7 +53,7 @@ const overWriteJSON = (newItem, title) => {
 
         let json = JSON.stringify(obj);
         fs.writeFile(
-          "./public/scripts/data.json",
+          "./dist/public/scripts/data.json",
           json,
           {
             encoding: "utf8",
