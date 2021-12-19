@@ -1,0 +1,104 @@
+@media screen and (max-width: 768px) {
+  .header {
+    gap: 10px;
+    height: 65px;
+  }
+
+  .header img,
+  .card-img img:nth-child(1) {
+    width: 1.5vw;
+    min-width: 75px;
+  }
+
+  .header div {
+    font-size: 20px;
+  }
+
+  .circle-button {
+    width: 50px;
+    height: 50px;
+
+    opacity: 1;
+    background-color: #fff;
+    border-color: var(--main-blue-color);
+  }
+
+  .circle-button i {
+    font-size: 25px;
+    color: var(--main-blue-color);
+  }
+
+  .info-wrapper h1 {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .profiles img {
+    height: 140px;
+  }
+
+  .roll-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .roll-button i {
+    font-size: 25px;
+  }
+
+  .profile div {
+    font-size: 12px;
+  }
+
+  .first-row {
+    gap: 0;
+  }
+
+  .card,
+  .card-reversed {
+    height: 160px;
+    min-width: 370px;
+  }
+
+  .card-reversed > .card-img {
+    margin: 0 5px 0 0;
+  }
+
+  .card-img {
+    height: 160px;
+    width: 138px;
+  }
+
+  .card-img img:nth-child(1) {
+    margin-left: -10px;
+  }
+
+  .card-content {
+    height: auto;
+    max-height: 160px;
+
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  .card-content i {
+    margin-left: 0;
+    font-size: 20px;
+  }
+
+  .card-content-text {
+    font-size: 12px;
+  }
+
+  .card-content-student {
+    padding-bottom: 0;
+  }
+
+  .student-name {
+    font-size: 15px;
+  }
+
+  .student-class {
+    font-size: 10px;
+  }
+}
