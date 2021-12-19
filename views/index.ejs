@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>SPŠT - OPERAČNÍ SYSTÉMY</title>
+    <title id="title">SPŠT - OPERAČNÍ SYSTÉMY</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="imgs/ikona.png" />
@@ -11,19 +11,21 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&amp;display=swap"
     />
-    <script type="text/javascript" src="/scripts/data.js"></script>
   </head>
   <body>
     <div class="header">
       <img src="/imgs/logo_spst.png" alt="logo_spst" />
-      <div>SPŠT - OPERAČNÍ SYSTÉMY</div>
+      <div id="title">SPŠT - OPERAČNÍ SYSTÉMY</div>
     </div>
     <div class="content">
       <div class="first-row">
         <div class="card">
           <div class="card-img">
             <img src="/imgs/logo_spst.png" />
-            <img src="/imgs/profiles/dan-01.jpg" loading="lazy" />
+            <img
+              src="/imgs/profiles/393b129a-6bb0-4922-b028-fceedfb5ae22-01.jpg"
+              loading="lazy"
+            />
           </div>
           <div class="card-content">
             <i class="fas fa-quote-left"></i>
@@ -31,15 +33,21 @@
               Miluju virtual box, ale po čase je to zlo =)
             </div>
             <div class="card-content-student">
-              <div class="student-name">Daniel</div>
-              <div class="student-class">ITA4</div>
+              <div>
+                <div class="student-name">Daniel</div>
+                <div class="student-class">ITA4</div>
+              </div>
+              <i class="fas fa-quote-right"></i>
             </div>
           </div>
         </div>
         <div class="card-reversed">
           <div class="card-img">
             <img src="/imgs/logo_spst.png" />
-            <img src="/imgs/profiles/david-01.jpg" loading="lazy" />
+            <img
+              src="/imgs/profiles/10057ae2-2829-4426-9165-920c9650020e-01.jpg"
+              loading="lazy"
+            />
           </div>
           <div class="card-content">
             <i class="fas fa-quote-left"></i>
@@ -49,8 +57,11 @@
               se.
             </div>
             <div class="card-content-student">
-              <div class="student-name">David</div>
-              <div class="student-class">ITA4</div>
+              <div>
+                <div class="student-name">David</div>
+                <div class="student-class">ITA4</div>
+              </div>
+              <i class="fas fa-quote-right"></i>
             </div>
           </div>
         </div>
@@ -59,7 +70,10 @@
         <div class="card">
           <div class="card-img">
             <img src="/imgs/logo_spst.png" />
-            <img src="/imgs/profiles/marcel-01.jpg" loading="lazy" />
+            <img
+              src="/imgs/profiles/60fe1dac-2172-48d6-b8c6-3d261e5dec2f-01.jpg"
+              loading="lazy"
+            />
           </div>
           <div class="card-content">
             <i class="fas fa-quote-left"></i>
@@ -68,8 +82,11 @@
               serverem.
             </div>
             <div class="card-content-student">
-              <div class="student-name">Marcel</div>
-              <div class="student-class">ITA4</div>
+              <div>
+                <div class="student-name">Marcel</div>
+                <div class="student-class">ITA4</div>
+              </div>
+              <i class="fas fa-quote-right"></i>
             </div>
           </div>
         </div>
@@ -102,9 +119,93 @@
         <i class="fas fa-arrow-up"></i>
       </div>
     </div>
-    <div class="team-info" onclick="showInfo()">
-      <i class="fas fa-users"></i>
+    <div class="settings" id="settings">
+      <div class="settings-dialog">
+        <div class="settings-dialog__header">
+          <div>&nbsp;</div>
+          <div>Přidat položku</div>
+          <i class="fas fa-times" onclick="hideCreationDialog()"></i>
+        </div>
+        <div class="settings-dialog__body">
+          <div
+            class="settings-dialog__body-drag-place file-message--default"
+            id="dragArea"
+          >
+            <i class="fas fa-plus"></i>
+            <div>
+              Klikni, nebo přetáhni soubor (.jpg, .png) do rámečku <br />
+              <b>Doporučení:</b> vložte větší obrázek aby se nerozhodil hlavní
+              pohled
+            </div>
+            <div>Špatný formát souboru !!</div>
+            <input type="file" id="imageInput" />
+          </div>
+          <div class="settings-dialog__body-item-form">
+            <label for="name">Jméno</label>
+            <input type="text" name="name" />
+            <label for="class">Třída</label>
+            <input type="text" name="class" />
+            <table>
+              <caption>
+                Citáty
+              </caption>
+              <tr>
+                <td>
+                  <div class="material-card">
+                    <input
+                      type="text"
+                      name="quote"
+                      oninput="expandQuoteInput(event)"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div
+                    class="circle-button minus"
+                    onclick="removeLine()"
+                    disabled
+                  >
+                    <i class="fas fa-minus"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="circle-button plus" onclick="addLine()">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="settings-dialog__footer">
+          <div>
+            <button disabled id="discardButton" onclick="discardImage()">
+              Discard Image
+            </button>
+          </div>
+          <div>
+            <button
+              disabled
+              id="uploadButton"
+              onclick="uploadEntity(event.target)"
+            >
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-buttons">
+      <div class="circle-button" onclick="showInfo()">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="circle-button" onclick="showCreationDialog()">
+        <i class="fas fa-plus"></i>
+      </div>
     </div>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/form.js"></script>
   </body>
 </html>
